@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration</title>
+    </head>
+
+    <body>
+        <h1>Register Student</h1>
+
+        {% if registered %}
+        <strong>Registration Complete!</strong>
+          <div class="container container-table">
+            <a class="btn btn-lg btn-success" href="/list/" role="button">Go to List</a>
+
+            </div>
+        {% else %}
+        Registration: <strong>Register here!</strong><br />
+
+
+        <form id="student_form" method="post" action="/register/add/"
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+
+
+            {{ name_form.as_p }}
+
+
+            <!-- Provide a button to click to submit the form. -->
+            <input type="submit" name="submit" value="Register" />
+        </form>
+
+            <div class="container container-table">
+            <a class="btn btn-lg btn-success" href="/" role="button">Back</a>
+
+            </div>
+        {% endif %}
+    </body>
+</html>

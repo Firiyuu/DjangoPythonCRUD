@@ -1,0 +1,16 @@
+<div class='col-sm-6 col-sm-offset-3'>
+                            {% if request.student == object.student %}
+              <p>Are you sure you want to kick-out this student? </p>
+
+                              <form action="" method="POST">
+
+                     {% csrf_token %}
+            <input type="submit" value="Delete" />
+            <input type="button" value="Give Another Chance" onclick="window.location='{% url 'list' %}'"/>
+            </form>
+
+                    {% else %}
+        <h4>Not allowed.</h4>
+        <a href="{% url 'list' %}">Back to list</a>
+    {% endif %}
+</div>
